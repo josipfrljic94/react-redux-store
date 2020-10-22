@@ -1,13 +1,14 @@
 import styled from "styled-components";
 export const SliderContainer= styled.div`
 width:100%;
-height:80vh;
-/* background:#d5d5d6d5; */
+min-height:400px;
+padding-top:5%;
 
 `
 export const CardContainer= styled.div`
-height:auto;
-padding:0 5px;
+padding: 0 5%;
+height:360px;
+
 
 @media screen and (max-width:768px){
     height:auto;

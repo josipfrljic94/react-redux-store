@@ -1,33 +1,51 @@
 import React from 'react';
-
+import {Route,Switch} from "react-router-dom";
 
 
 import './App.css';
-import Banner from './components/Banner.js';
-import MyNavbar from './components/Navbar/MyNavbar';
+import Home from './pages/Home';
+import Women from "./pages/Women";
+import Men from "./pages/Men";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
 
+import MyNavbar from './components/Navbar';
 import UpperNav from './UpperNav';
-
-import Feature from './Feature';
-import { homeFeature } from './Feature/data';
-import UnderBanner from './components/UnderBanner';
-import ProductSlider from './components/ProductSlider';
-import { homeSlider } from './components/ProductSlider/data';
 
 
 
 function App() {
+
+ 
+  
+ 
   return (
     <div className="App">
       <UpperNav/>
      <MyNavbar/>
-     <Banner/>
-     <UnderBanner/>
-    <Feature {...homeFeature}/>
-    <ProductSlider {...homeSlider}/>
-
+     <Switch>
+      <Route  exact path="/">
+        <Home/>
+      </Route>
+    <Route exact path="/women">
+    <Women/>
+    </Route>
+      <Route exact path="/men">
+      <Men/>
+      </Route>
+    <Route exact path="/cart">
+      <Cart/>
+    </Route>
+    <Route exact path="/login">
+    <Login/>
+    </Route>
+    
+    </Switch>
+   
+    
     </div>
   );
 }
 
-export default App;
+
+export default ( App);
