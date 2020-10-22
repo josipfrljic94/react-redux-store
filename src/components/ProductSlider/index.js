@@ -41,8 +41,8 @@ const ProductSlider = ({img,img1,img2,img3}) => {
       };
     return (
         
-            <SliderContainer>
-            <Slider {...settings} style={{height:"90%",width:"90%",marginLeft:"5%",paddingTop:"100px"}}>
+            <SliderContainer >
+            <Slider {...settings} style={{height:"80%",width:"80%",marginLeft:"10%"}}>
         <CardContainer >
          <Card className="h-100 bg-light">
           <Image fluid src={img}className="h-100" ></Image>

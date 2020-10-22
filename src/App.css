@@ -29,13 +29,24 @@
 }
 
 
+.feature-first{height:800px}
 
+.feature-second{height:800px;
+  display:flex;
+  flex-wrap:wrap;
+}
 
-
-@media screen and (max-width:908px){
+@media screen and (max-width:1026px){
   .featured-text{
     padding: 3% 0;
   }
+  .feature-first{
+    height: 800px;
+  }
+  .feature-second{
+    height: 800px;
+  }
+ 
    .featured-text h1{
     font-size: 1.5rem;
   }
@@ -43,4 +54,23 @@
     font-size: 1.2rem;
   } 
   
+}
+@media screen and (max-width:768px){
+  .feature-first{
+    height: 650px;
+  }
+  .feature-second{
+    height: 650px;
+    
+  }
+  
+}
+@media screen and (max-width:460px){
+  .feature-first{
+    height: 450px;
+    
+  }
+  .feature-second{
+    height: 450px;
+  }
 }

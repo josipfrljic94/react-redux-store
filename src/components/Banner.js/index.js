@@ -5,10 +5,12 @@ import video1 from "../../video/e-store-video1.mp4"
 
 const Banner = () => {
     return (
+        
        <JumbotronContainer >
+         {!video1 ? <h1>Loading</h1> :
         <Jumbotron background={video1} type="video/mp4">
             <JumbotronBg>
-                <JumboVideo autoPlay={true} loop={true}  type="video/mp4" src={video1} />
+            <JumboVideo autoPlay={true} loop={true}  type="video/mp4" src={video1} />  
             </JumbotronBg>
             <JumbotronContent>
                 <JumbotronH1 darktext={true}>Clothes is part of you</JumbotronH1>
@@ -16,8 +18,9 @@ const Banner = () => {
             </JumbotronContent>
         
         </Jumbotron>
-            
+            }    
         </JumbotronContainer>
+        
     )
 }
 
