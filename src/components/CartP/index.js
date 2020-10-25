@@ -4,7 +4,7 @@ import {Container,Row,Col,Image} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 import {addToCart,removeFromCart} from "../../actions/cart";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+
 
 
 const CartProducts = ({cartProducts,addToCart,removeFromCart,isSignin}) => {
@@ -20,13 +20,13 @@ const [summa, setSumma] = useState(0)
     const addInCart=(e,product)=>{
         e.preventDefault();
         addToCart(product)
-    //  setsumma(summa+product.price)
+   
        
     }
     const deleteProduct=(e,product)=>{
         e.preventDefault();
         removeFromCart(product)
-    //    setsumma(summa-product.price)
+   
     }
   
     return (
