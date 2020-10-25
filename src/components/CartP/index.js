@@ -1,41 +1,78 @@
-import React from 'react'
-import {CardProduct,CardContainer,CardImage,CardBody,CardTitle,CardPrice,ProductLink} from "./CartE";
+import React,{useState,useEffect} from 'react'
+import {CardBody,CardTitle,CardPrice,ProductLink} from "./CartE";
+import {Container,Row,Col,Image} from "react-bootstrap";
 import {Button} from "react-bootstrap";
-const CartProducts = ({cartProducts,addToCart,removeFromCart}) => {
+import {addToCart,removeFromCart} from "../../actions/cart";
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+
+
+const CartProducts = ({cartProducts,addToCart,removeFromCart,isSignin}) => {
+
+const [summa, setSumma] = useState(0)  
+    useEffect(() => {
+       
+       setSumma( cartProducts.reduce((a, c) => a + c.price * c.cart, 0))
+        
+    }, [cartProducts])
+
+
     const addInCart=(e,product)=>{
         e.preventDefault();
         addToCart(product)
+    //  setsumma(summa+product.price)
+       
     }
     const deleteProduct=(e,product)=>{
         e.preventDefault();
         removeFromCart(product)
+    //    setsumma(summa-product.price)
     }
+  
     return (
        
-        <CardContainer>
+        <Container fluid="true" style={{width:"100%"}} >
+            <Row>
+            <Col md={8}  className="mt-2 mb-2 " style={{borderBottom:"1px solid darkgrey"}}>
         {cartProducts.map(p=>{
             return(
                 
-                <CardProduct key={p.id}>
-                <ProductLink to={`/product/${p.id}`}>
-                <CardImage src={p.img}></CardImage>
-                <CardBody>
-                <CardTitle>{p.cart} </CardTitle>
-                <div>
+                <Row  key={p.id} lg={12} className="space-betweem" md={12}>
+                    <Col md={4} xs={4}  className="d-flex align-items-center">
+                        <Image src={p.img} style={{width:"120px",height:"auto"}}></Image>
+                    </Col>
+                    <Col md={8} xs={8} className=" d-flex justify-content-center" >             
+                <CardBody  style={{height:"300px"}}>
+                <CardTitle>{p.title} </CardTitle>
+                <CardPrice>{p.price*p.cart } $</CardPrice>
+                <CardTitle>Quantity {p.cart} </CardTitle>
+                <Row className=" justify-content-center" >
                     
                     <Button variant="dark" className="rounded-0 mr-1" onClick={(e)=>addInCart(e,p)}>ADD</Button>
                     <Button variant="dark" className="rounded-0 ml-1" onClick={(e)=>deleteProduct(e,p)}>REMOVE</Button>
-                </div>
-                <CardPrice>{p.cart*p.price}$</CardPrice>
+                </Row>
+               
                 </CardBody>
-                </ProductLink>
-            </CardProduct>
+                </Col>
+                
+                </Row>
+               
             )
         })}
+        </Col>
+        <Col md={4} className="d-flex flex-column align-content-center">
+           <h3 style={{borderBottom:"1px solid darkgrey "}}>Summary</h3>
+        <CardTitle>Total price: {summa} $ </CardTitle>
         
-    </CardContainer>
+        <Button className="rounded-0 mr-3 ml-3" variant="dark"><ProductLink to={isSignin ? "/" : "/register"}>FINISH</ProductLink></Button>
+        </Col>
+        </Row>
+    </Container>
     
     )
 }
-
-export default CartProducts
+const mapStateToProps=(state)=>({
+    cartProducts: state.cart.cartProducts,
+    isSignin: state.authR.signin
+})
+export default connect(mapStateToProps,{addToCart,removeFromCart})(CartProducts)
