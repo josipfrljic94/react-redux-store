@@ -1,10 +1,9 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from "react-bootstrap/Nav";
-import { BsSearch } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsFillBriefcaseFill} from "react-icons/bs";
-import {LinkRouter} from "./MyNavbarE"
+import {LinkRouter} from "./MyNavbarE";
 
 
 
@@ -23,8 +22,9 @@ const MyNavbar = () => {
       <LinkRouter to="/" className="link-nav text-dark">New</LinkRouter>
     </Nav>
     <Nav className="second-nav">
-      <Nav.Link to=""  className="link-nav2 text-dark"><BsSearch/></Nav.Link>
-      <LinkRouter to="/login" className="link-nav2 text-dark">
+    
+    
+      <LinkRouter to="/register" className="link-nav2 text-dark">
        <BsFillPersonFill/>
       </LinkRouter>
       <LinkRouter to="/cart"  className="link-nav2 text-dark">

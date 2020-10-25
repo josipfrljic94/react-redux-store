@@ -8,14 +8,14 @@ const Products = ({products}) => {
             return(
                 
                 <CardProduct key={p.id}>
-                <ProductLink to="/">
-            <CardImage src={p.img}></CardImage>
-            <CardBody>
+                <ProductLink to={`/product/${p.id}`}>
+                <CardImage src={p.img}></CardImage>
+                <CardBody>
                 <CardTitle>{p.title} </CardTitle>
                 <CardPrice>{p.price}$</CardPrice>
-            </CardBody>
-            </ProductLink>
-        </CardProduct>
+                </CardBody>
+                </ProductLink>
+            </CardProduct>
             )
         })}
         

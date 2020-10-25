@@ -1,17 +1,19 @@
 import React,{useEffect,useState,useCallback} from 'react'
 import { connect } from 'react-redux';
-import {getProducts} from "../actions/products_a";
+import {getProducts} from "../actions/productsA";
 import HomeCarousel from '../components/Carousel';
+import { womanCarousel } from '../components/Carousel/data';
 import Products from '../components/Products';
 
 
 const Women = ({products,loading,getProducts}) => {
 
-    const [allproducts, setallproducts] = useState([]);
+    const [filterproducts, setfilterproducts] = useState([]);
 
     const getAllProducts = useCallback(async() => {
-         await getProducts()
-       await  setallproducts(products)
+         await getProducts();
+        let allProducts = await products.filter(p=>p.gender==="women")
+       await  setfilterproducts(allProducts)
     }, [getProducts,products])
    
 
@@ -22,9 +24,9 @@ const Women = ({products,loading,getProducts}) => {
     }, [getAllProducts]); 
     return (
         <div>
-            <HomeCarousel/>
+            <HomeCarousel {...womanCarousel}/>
           
-            {loading ? <h1 >Loading...</h1> :<Products products={allproducts}/>}
+            {loading ? <h1 >Loading...</h1> :<Products products={filterproducts}/>}
             
         </div>
     )

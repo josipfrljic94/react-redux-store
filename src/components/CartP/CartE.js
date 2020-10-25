@@ -16,16 +16,16 @@ background:#faf9f9;
 padding:2rem;
 `
 export const CardProduct= styled.div`
-width:300px;
-height:455px;
+width:455px;
+height:350px;
 display:flex;
-flex-direction:column;
+flex-direction:row;
 align-items:center;
-background:#fff;
+background:red;
 `
 export const CardImage=styled.img`
-height:390px;
-width:100%;
+height:100%;
+width:175px;
 object-fit:cover;
 object-position:center;
 overflow:hidden;
@@ -35,9 +35,10 @@ transition:all 0.2s ease-in-out;
 `
 
 export const CardBody=styled.div`
-height:65px;
-width:100%;
+height:100%;
+width:40%;
 display:flex;
+flex-direction:column;
 justify-content:center;
 justify-content:space-between;
 align-items:center;
