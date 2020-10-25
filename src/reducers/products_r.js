@@ -19,3 +19,17 @@ export const products=(state=initialState,action)=>{
             return state;
     }
 }
+
+export const productR=(state = { product:{} },action)=>{
+    const{type,payload}=action;
+
+   switch (type) {
+       case constants.GET_PRODUCT:
+           return {
+            product:payload.product};
+          
+   
+       default:
+           return state;
+   }
+}

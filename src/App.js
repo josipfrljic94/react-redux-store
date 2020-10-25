@@ -1,20 +1,23 @@
 import React from 'react';
 import {Route,Switch} from "react-router-dom";
-
+import {connect} from "react-redux"
 
 import './App.css';
 import Home from './pages/Home';
 import Women from "./pages/Women";
 import Men from "./pages/Men";
 import Cart from "./pages/Cart";
-import Login from "./pages/Login";
+
 
 import MyNavbar from './components/Navbar';
 import UpperNav from './UpperNav';
+import Register from './pages/Register';
+import SignIn from './pages/SignIn';
+import ProductItem from './pages/ProductItem';
 
 
 
-function App() {
+function App({login}) {
 
  
   
@@ -36,8 +39,14 @@ function App() {
     <Route exact path="/cart">
       <Cart/>
     </Route>
+    <Route exact path="/register">
+       <Register/>
+    </Route>
     <Route exact path="/login">
-    <Login/>
+       <SignIn/>
+    </Route>
+    <Route exact path="/product/:hash">
+        <ProductItem/>
     </Route>
     
     </Switch>
@@ -47,5 +56,7 @@ function App() {
   );
 }
 
-
-export default ( App);
+const mapStateToProps=(state)=>({
+  login: state.authR.login
+})
+export default connect(mapStateToProps,{})( App);

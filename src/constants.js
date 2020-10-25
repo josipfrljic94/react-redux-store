@@ -1,1 +1,7 @@
 export const GET_PRODUCTS= "GET_PRODUCTS";
+export const GET_PRODUCT= "GET_PRODUCT";
+export const REGISTRING_USER="REGISTRING_USER";
+export const SIGNIN_USER= "SIGNIN_USER";
+export const SIGNOUT_USER="SIGNOUT_USER";
+export const ADDTO_CART="ADDTO_CART";
+export const REMOVEFROM_CART= "REMOVEFROM_CART";

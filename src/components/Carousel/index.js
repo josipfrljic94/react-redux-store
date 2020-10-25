@@ -1,11 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import img1 from "../../images/wbg1.jpg";
-import img2 from "../../images/wbg2.jpg";
-import img3 from "../../images/wbg3.jpg"
+
 import {CarouselImg,Title,Desc} from "./CarouselE";
 
-const HomeCarousel = () => {
+const HomeCarousel = ({img1,img2,img3,title1,title2,title3,darkCol}) => {
     return (
         <Carousel >
         <Carousel.Item interval={1000} >
@@ -16,8 +14,8 @@ const HomeCarousel = () => {
             alt="First slide"
           />
           <Carousel.Caption >
-            <Title>First slide label</Title>
-            <Desc>Nulla vitae elit libero, a pharetra augue mollis interdum.</Desc>
+          <Title darkcol={darkCol}>{title1}</Title>
+            <Desc darkcol={darkCol}>Nulla vitae elit libero, a pharetra augue mollis interdum.</Desc>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={500} >
@@ -28,8 +26,8 @@ const HomeCarousel = () => {
             alt="Third slide"
           />
           <Carousel.Caption >
-            <Title>Second slide label</Title>
-            <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Desc>
+          <Title darkcol={darkCol}>{title2 }</Title>
+            <Desc darkcol={darkCol}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Desc>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item >
@@ -40,8 +38,8 @@ const HomeCarousel = () => {
             alt="Third slide"
           />
           <Carousel.Caption >
-            <Title>Third slide label</Title>
-            <Desc>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</Desc>
+            <Title darkcol={darkCol}>{title3}</Title>
+            <Desc darkcol={darkCol}>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</Desc>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
