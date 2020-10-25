@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const SliderContainer= styled.div`
 width:100%;
+max-height:800px;
 min-height:400px;
 padding-top:5%;
 
