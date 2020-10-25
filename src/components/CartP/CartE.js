@@ -36,12 +36,10 @@ transition:all 0.2s ease-in-out;
 
 export const CardBody=styled.div`
 height:100%;
-width:40%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-justify-content:space-between;
-align-items:center;
+width:100%;
+display:grid;
+text-align:center;
+align-content:center;
 `
 export const CardTitle= styled.h5`
 color:#0a0a0a;
@@ -54,8 +52,9 @@ color:#c1b1b1;
 margin-right:3px;
 `
 export const ProductLink= styled(Link)`
-
+color:#fafafa;
 &:hover{
     text-decoration:none;
+    color:#fff;
 }
 `
