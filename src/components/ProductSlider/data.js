@@ -1,6 +1,6 @@
 export const homeSlider={
-    img:require("../../images/haljina4.jpg"),
+    img:require("../../images/men2.jpg"),
     img1:require("../../images/haljina5.jpg"),
-    img2:require("../../images/haljina6.jpg"),
+    img2:require("../../images/men6.jpg"),
     img3:require("../../images/haljina7.jpg"),
 }

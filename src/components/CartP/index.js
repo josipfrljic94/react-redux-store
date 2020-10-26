@@ -31,17 +31,17 @@ const [summa, setSumma] = useState(0)
   
     return (
        
-        <Container fluid="true" style={{width:"100%"}} >
-            <Row>
-            <Col md={8}  className="mt-2 mb-2 " style={{borderBottom:"1px solid darkgrey"}}>
+        <Container fluid="true" className="p-0 m-0" style={{width:"100%"}} >
+            <Row md={12} className="p-0 m-0">
+            <Col md={8}  className="mt-2 mb-2 m-0 p-0 " >
         {cartProducts.map(p=>{
             return(
                 
-                <Row  key={p.id} lg={12} className="space-betweem" md={12}>
-                    <Col md={4} xs={4}  className="d-flex align-items-center">
+                <Row  key={p.id} lg={7} md={7} className="space-around m-0 p-0 w-90"  style={{borderBottom:"1px solid darkgrey"}}>
+                    <Col md={4} xs={4}   className="d-flex align-items-center " >
                         <Image src={p.img} style={{width:"120px",height:"auto"}}></Image>
                     </Col>
-                    <Col md={8} xs={8} className=" d-flex justify-content-center" >             
+                    <Col md={7} xs={7} className=" d-flex justify-content-center" >             
                 <CardBody  style={{height:"300px"}}>
                 <CardTitle>{p.title} </CardTitle>
                 <CardPrice>{p.price*p.cart } $</CardPrice>
@@ -60,11 +60,11 @@ const [summa, setSumma] = useState(0)
             )
         })}
         </Col>
-        <Col md={4} className="d-flex flex-column align-content-center">
+        <Col md={3} className="d-flex flex-column align-content-center m-0 p-0 mt-3">
            <h3 style={{borderBottom:"1px solid darkgrey "}}>Summary</h3>
         <CardTitle>Total price: {summa} $ </CardTitle>
         
-        <Button className="rounded-0 mr-3 ml-3" variant="dark"><ProductLink to={isSignin ? "/" : "/register"}>FINISH</ProductLink></Button>
+        <Button className="rounded-0 m-0 p-0" variant="dark"><ProductLink to={isSignin ? "/" : "/register"}>FINISH</ProductLink></Button>
         </Col>
         </Row>
     </Container>

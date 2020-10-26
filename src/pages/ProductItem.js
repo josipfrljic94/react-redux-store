@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 import {connect} from "react-redux";
 import {getProducts,getProduct} from "../actions/productsA";
 import {addToCart} from "../actions/cart";
-
+import {Link} from "react-router-dom";
 
 const ProductItem = ({getProducts,getProduct,product,addToCart}) => {
 
@@ -54,6 +54,7 @@ const addInCart=(e)=>{
                   
                   
                   <Button variant="dark" className="rounded-0" onClick={(e)=>addInCart(e)}>ADD TO CART</Button>
+                  <Button variant="dark" className="rounded-0 mt-4" ><Link style={{color:"#fafafa"}} to="/cart">GO TO CART</Link></Button>
 
                   <h3>Description</h3>
                   <p >{theproduct.descripton}</p> 
